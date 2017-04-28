@@ -1,0 +1,13 @@
+INPUT(
+./release\main.o
+./release\vec2d.o
+./release\graphics.o
+./release\vec3d.o
+./release\plugin.o
+./release\grid.o
+./release\box.o
+./release\world.o
+./release\player.o
+./release\moc_window.o
+./release\moc_plugin.o
+);

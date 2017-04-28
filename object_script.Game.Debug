@@ -1,0 +1,13 @@
+INPUT(
+./debug\main.o
+./debug\vec2d.o
+./debug\graphics.o
+./debug\vec3d.o
+./debug\plugin.o
+./debug\grid.o
+./debug\box.o
+./debug\world.o
+./debug\player.o
+./debug\moc_window.o
+./debug\moc_plugin.o
+);

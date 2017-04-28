@@ -447,7 +447,7 @@ Graphics::Graphics(std::string title, int width, int height,
     : mersenneTwister(randDevice()),
       in{new iStreamBuf([this]() { return getInputText(); })},
       out{new oStreamBuf([this](const std::string& txt) { return appendOutputText(txt); })}
-{   
+{
     qRegisterMetaType<std::string>();
 
     mersenneTwister.seed((std::chrono::system_clock::now().time_since_epoch()).count()); // should'nt be necesary... bug in GCC?
@@ -1308,16 +1308,20 @@ void Widget::mouseMoveEvent(QMouseEvent * event)
 
 void Widget::keyPressEvent(QKeyEvent * event)
 {
-    _graphics->handleEvent(0, 0, EvtType::KeyPress,
-                           cvtMods(event->modifiers()),
-                           event->key());
+    if (!event->isAutoRepeat()) {
+        _graphics->handleEvent(0, 0, EvtType::KeyPress,
+                               cvtMods(event->modifiers()),
+                               event->key());
+    }
 }
 
 void Widget::keyReleaseEvent(QKeyEvent * event)
 {
-    _graphics->handleEvent(0,0, EvtType::KeyRelease,
-                           cvtMods(event->modifiers()),
-                           event->key());
+    if (!event->isAutoRepeat()) {
+        _graphics->handleEvent(0,0, EvtType::KeyRelease,
+                               cvtMods(event->modifiers()),
+                               event->key());
+    }
 }
 
 Window::Window(mssm::Graphics *g, std::string title)
@@ -1480,4 +1484,3 @@ Color hsv2rgb(double h, double s, double v)
 }
 
 } // namespace mssm
-
