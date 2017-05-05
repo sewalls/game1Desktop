@@ -12,6 +12,8 @@ enum class blockType
 class box
 {
 public:
+    int x;
+    int y;
     int xCoords;
     int yCoords;
     blockType type;

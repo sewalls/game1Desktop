@@ -1,5 +1,4 @@
 #include "graphics.h"
-#include "grid.h"
 #include "box.h"
 #include "world.h"
 #include <vector>
@@ -14,27 +13,39 @@ void graphicsMain(Graphics& g)
     Sound pew("ShortLaser.wav");
 
     box b1(1, 1, blockType::solid);
-    box b2(1, 2, blockType::air);
-    box b3(1, 3, blockType::solid);
-    box b4(1, 5, blockType::solid);
-    box b5(2, 1, blockType::air);
-    box b6(5, 3, blockType::solid);
+    box b2(2, 1, blockType::solid);
+    box b3(3, 1, blockType::solid);
+    box b4(4, 1, blockType::solid);
+    box b5(5, 1, blockType::solid);
+    box b6(6, 1, blockType::solid);
+    box b7(7, 1, blockType::solid);
+    box b8(8, 1, blockType::solid);
+    box b9(9, 1, blockType::solid);
+    box b10(10, 1, blockType::solid);
+    box b11(11, 1, blockType::solid);
+    box b12(12, 1, blockType::solid);
+    box b13(13, 1, blockType::solid);
+    box b14(14, 1, blockType::solid);
+    box b15(15, 1, blockType::solid);
+    box b16(4, 3, blockType::solid);
 
-    player kura{70, 500, 0, 0, Image{"toby.png"}};
 
-    world world1{{b1, b2, b3, b4, b5, b6}, kura};
+    player kura{0, 0, 0, 0, false, Image{"player1.png"}};
+
+    world world1{{b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16}, kura};
 
     while (g.draw())
     {
         g.clear();
 
-        world1.draw(g);
         world1.update(g);
+        world1.draw(g);
 
         for (const Event& e : g.events()) {
             switch (e.evtType) {
             case EvtType::KeyPress:
                 g.out << "KeyPress: " << e.arg << endl;
+                world1.keypressed(g, e.arg);
                 break;
             case EvtType::KeyRelease:
                 g.out << "KeyRelease: " << e.arg << endl;
@@ -44,11 +55,9 @@ void graphicsMain(Graphics& g)
                 break;
             case EvtType::MousePress:
                 g.out << "MousePress: " << e.arg << endl;
-                g.play(pew);
                 break;
             case EvtType::MouseRelease:
                 g.out << "MouseRelease: " << e.arg << endl;
-                g.play(pew);
                 break;
             default:
                 break;

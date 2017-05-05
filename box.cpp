@@ -19,8 +19,8 @@ Image getImage(blockType block) {
 }
 
 box::box(int x, int y, blockType block) {
-    xCoords = (y - 1) * 64;
-    yCoords = 600 - x * 64;
+    xCoords = (x - 1) * 64;
+    yCoords = 600 - y * 64;
     type = block;
 }
 

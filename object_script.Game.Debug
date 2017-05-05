@@ -4,7 +4,6 @@ INPUT(
 ./debug\graphics.o
 ./debug\vec3d.o
 ./debug\plugin.o
-./debug\grid.o
 ./debug\box.o
 ./debug\world.o
 ./debug\player.o

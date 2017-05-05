@@ -4,7 +4,6 @@ INPUT(
 ./release\graphics.o
 ./release\vec3d.o
 ./release\plugin.o
-./release\grid.o
 ./release\box.o
 ./release\world.o
 ./release\player.o

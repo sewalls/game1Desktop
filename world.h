@@ -11,6 +11,7 @@ public:
     std::vector<box> boxes;
     player player1;
 
+    void keypressed(Graphics& g, int arg);
     void draw(Graphics& g);
     void update(Graphics &g);
 };

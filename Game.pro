@@ -10,7 +10,6 @@ SOURCES += \
     graphics.cpp \
     vec3d.cpp \
     plugin.cpp \  
-    grid.cpp \
     box.cpp \
     world.cpp \
     player.cpp
@@ -22,7 +21,6 @@ HEADERS  += \
     window.h \
     vec3d.h \
     plugin.h \  
-    grid.h \
     box.h \
     world.h \
     player.h
